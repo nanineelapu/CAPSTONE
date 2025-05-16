@@ -105,5 +105,6 @@ public class AuthController {
             return ResponseEntity.status(404).body("Mobile number not found");
         }
         return ResponseEntity.ok(subscriber);
+        //return ResponseEntity.ok("Mobile number is valid");
     }
 }
