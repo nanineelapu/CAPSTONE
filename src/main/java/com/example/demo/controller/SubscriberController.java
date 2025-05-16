@@ -26,7 +26,7 @@ public class SubscriberController {
         return ResponseEntity.ok(subscriberRepository.findExpiringSubscribers());
     }
 
-    @GetMapping("/admin/subscribers/{mobileNumber}/history")
+    @GetMapping("/subscribers/{mobileNumber}/history")
     public ResponseEntity<List<Recharge>> getRechargeHistory(@PathVariable String mobileNumber) {
         if (!mobileNumber.matches("^[0-9]{10}$")) {
             return ResponseEntity.badRequest().body(null);
