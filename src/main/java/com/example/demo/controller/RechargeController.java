@@ -48,7 +48,7 @@ public class RechargeController {
 //        return ResponseEntity.ok(savedRecharge);
 //    }
 // did i got an error here
-    @PostMapping("/user/recharge")
+    @PostMapping("/recharge")
     public ResponseEntity<?> recharge(@RequestBody RechargeRequest request) {
         if (request.getMobileNumber() == null || !request.getMobileNumber().matches("^[0-9]{10}$")) {
             return ResponseEntity.badRequest().body("Invalid mobile number");
