@@ -12,7 +12,7 @@ import com.example.demo.repository.SubscriberRepository;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/api")
 @CrossOrigin(origins = "https://main.d2l6bpupzeebpz.amplifyapp.com")
 public class SubscriberController {
     @Autowired
@@ -21,12 +21,12 @@ public class SubscriberController {
     @Autowired
     private RechargeRepository rechargeRepository;
 
-    @GetMapping("/subscribers/expiring")
+    @GetMapping("/admin/subscribers/expiring")
     public ResponseEntity<List<Subscriber>> getExpiringSubscribers() {
         return ResponseEntity.ok(subscriberRepository.findExpiringSubscribers());
     }
 
-    @GetMapping("/subscribers/{mobileNumber}/history")
+    @GetMapping("/admin/subscribers/{mobileNumber}/history")
     public ResponseEntity<List<Recharge>> getRechargeHistory(@PathVariable String mobileNumber) {
         if (!mobileNumber.matches("^[0-9]{10}$")) {
             return ResponseEntity.badRequest().body(null);
