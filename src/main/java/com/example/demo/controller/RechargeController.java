@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api")
 @CrossOrigin(origins = "https://main.d2l6bpupzeebpz.amplifyapp.com")
 public class RechargeController {
     @Autowired
@@ -35,7 +35,7 @@ public class RechargeController {
     @Autowired
     private EmailService emailService;
 
-    @GetMapping("/plans")
+    @GetMapping("/user/plans")
     public ResponseEntity<List<Plan>> getPlans() {
         return ResponseEntity.ok(planRepository.findAll());
     }
@@ -47,7 +47,7 @@ public class RechargeController {
 //        Recharge savedRecharge = rechargeRepository.save(recharge);
 //        return ResponseEntity.ok(savedRecharge);
 //    }
-    @PostMapping("/recharge")
+    @PostMapping("/user/recharge")
     public ResponseEntity<?> recharge(@RequestBody RechargeRequest request) {
         if (request.getMobileNumber() == null || !request.getMobileNumber().matches("^[0-9]{10}$")) {
             return ResponseEntity.badRequest().body("Invalid mobile number");

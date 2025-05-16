@@ -36,7 +36,8 @@ public class SecurityConfig {
                 .requestMatchers("/api/user/**").permitAll()
                 .requestMatchers("/api/auth/admin/register").authenticated()
                 .requestMatchers("/api/admin/**").authenticated()
-                .requestMatchers("/api/user/recharge", "/api/user/plans", "/api/auth/**").permitAll() 
+                .requestMatchers("/api/user/recharge", "/api/user/plans").permitAll()
+                .requestMatchers("/api/user/**").authenticated() // instead of permitAll()
                 .anyRequest().authenticated()
             )
             .headers(headers -> headers
