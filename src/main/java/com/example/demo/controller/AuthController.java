@@ -22,7 +22,7 @@ import java.util.Base64;
 import java.util.Date;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api")
 @CrossOrigin(origins = "https://main.d2l6bpupzeebpz.amplifyapp.com")
 public class AuthController {
     @Autowired
