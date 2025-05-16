@@ -21,7 +21,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://main.d2l6bpupzeebpz.amplifyapp.com")
 public class RechargeController {
     @Autowired
     private PlanRepository planRepository;
