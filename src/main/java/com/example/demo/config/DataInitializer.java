@@ -21,8 +21,8 @@ public class DataInitializer implements CommandLineRunner {
        
         if (adminRepository.count() == 0) {
             Admin admin = new Admin();
-            admin.setUsername("admin");
-            admin.setPassword(passwordEncoder.encode("Admin@123")); 
+            admin.setUsername("techmadmin");
+            admin.setPassword(passwordEncoder.encode("230203")); 
             adminRepository.save(admin);
             System.out.println("Initial admin created with username: admin");
         }
