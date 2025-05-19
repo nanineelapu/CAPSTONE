@@ -27,16 +27,16 @@ public class User {
 
     @Column(unique = true)
     @NotBlank
-    private String username;
+    private String name;
 
     // Constructors
     public User() {}
 
-    public User(String mobileNumber, String email, String password ,String username) {
+    public User(String mobileNumber, String email, String password ,String name) {
         this.mobileNumber = mobileNumber;
         this.email = email;
         this.password = password;
-        this.username = username;
+        this.name = name;
     }
 
     // Getters and Setters
@@ -69,10 +69,10 @@ public class User {
     }
 
     public String getUsername() {
-        return username;
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String name) {
+        this.name = name;
     }
 }
