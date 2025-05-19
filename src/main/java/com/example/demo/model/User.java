@@ -25,13 +25,18 @@ public class User {
     @Size(min = 6)
     private String password;
 
+    @Column(unique = true)
+    @NotBlank
+    private String username;
+
     // Constructors
     public User() {}
 
-    public User(String mobileNumber, String email, String password) {
+    public User(String mobileNumber, String email, String password ,String username) {
         this.mobileNumber = mobileNumber;
         this.email = email;
         this.password = password;
+        this.username = username;
     }
 
     // Getters and Setters
@@ -61,5 +66,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
