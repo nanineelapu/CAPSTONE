@@ -33,6 +33,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers("/api/auth/admin/login", "/api/auth/validate-mobile").permitAll()
+                .requestMatchers("/api/user/register", "/api/user/login").permitAll()
                 .requestMatchers("/api/user/**").permitAll()
                 .requestMatchers("/api/auth/admin/register").authenticated()
                 .requestMatchers("/api/admin/**").authenticated()
