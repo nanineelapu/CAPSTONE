@@ -30,7 +30,7 @@ public class Recharge {
 		return transactionId;
 	}
 
-	public void settransactionId(String transactionId) {
+	public void setTransactionId(String transactionId) {
 		this.transactionId = transactionId;
 	}
 	public Long getId() {

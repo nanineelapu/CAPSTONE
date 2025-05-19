@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "https://main.d2l6bpupzeebpz.amplifyapp.com")
+@CrossOrigin(origins = {"https://main.d2l6bpupzeebpz.amplifyapp.com", "http://localhost:4200"})
 public class SubscriberController {
     @Autowired
     private SubscriberRepository subscriberRepository;

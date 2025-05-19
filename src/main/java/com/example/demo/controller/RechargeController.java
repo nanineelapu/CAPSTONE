@@ -21,7 +21,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "https://main.d2l6bpupzeebpz.amplifyapp.com")
+@CrossOrigin(origins = {"https://main.d2l6bpupzeebpz.amplifyapp.com", "http://localhost:4200"})
 public class RechargeController {
     @Autowired
     private PlanRepository planRepository;
@@ -85,23 +85,23 @@ public class RechargeController {
 
         // Update subscriber
         subscriber.setCurrentPlan(plan);
-        subscriber.getCurrentPlan().getName();
+        // subscriber.getCurrentPlan().getName();
         subscriber.setPlanExpiry(LocalDate.now().plusDays(plan.getValidityDays()));
         subscriber.setDataUsed(0.0);
         String rawData = plan.getDataPerDay(); // e.g., "1.5GB/day" or "1.5GB"
         double numericData = Double.parseDouble(rawData.replaceAll("[^\\d.]", ""));
         subscriber.setDataTotal(numericData * plan.getValidityDays());
         subscriberRepository.save(subscriber);
-
-        String transactionIdString = UUID.randomUUID().toString();
-        recharge.settransactionId(transactionIdString); // ✅ Save it to the DB
-        rechargeRepository.save(recharge);
-        // Send confirmation email
+        
         String transactionId = UUID.randomUUID().toString();
-        emailService.sendConfirmationEmail(subscriber.getEmail(), subscriber.getMobileNumber(), plan.getName(),
-                plan.getPrice(), transactionId);
+        recharge.setTransactionId(transactionId); // fix method name too
+        rechargeRepository.save(recharge);
 
-        return ResponseEntity.ok(new RechargeResponse(transactionId));
+        emailService.sendConfirmationEmail(subscriber.getEmail(), subscriber.getMobileNumber(),
+        plan.getName(), plan.getPrice(), transactionId);
+
+    return ResponseEntity.ok(new RechargeResponse(transactionId));
+
         
        
 
