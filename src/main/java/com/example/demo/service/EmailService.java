@@ -20,4 +20,5 @@ public class EmailService {
                 " has been successful. Transaction ID: " + transactionId + "\n\nThank you!");
         mailSender.send(message);
     }
+
 }

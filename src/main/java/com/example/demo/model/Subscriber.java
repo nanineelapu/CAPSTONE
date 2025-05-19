@@ -15,9 +15,9 @@ public class Subscriber {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private User mobileNumber;
-	private User name;
-	private User email;
+	private String mobileNumber;
+	private String name;
+	private String email;
 	@ManyToOne
 	private Plan currentPlan;
 	private LocalDate planExpiry;
@@ -34,27 +34,27 @@ public class Subscriber {
 		this.id = id;
 	}
 
-	public User getMobileNumber() {
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(User mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 
-	public User getName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setName(User name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public User getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(User email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
@@ -97,19 +97,4 @@ public class Subscriber {
 	public void setCreatedAt(LocalDate createdAt) {
 		this.createdAt = createdAt;
 	}
-
-    public void setMobileNumber(String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setMobileNumber'");
-    }
-
-    public void setEmail(String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setEmail'");
-    }
-
-    public void setName(String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setName'");
-    }
 }
