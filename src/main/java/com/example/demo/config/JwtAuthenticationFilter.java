@@ -58,6 +58,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             String username = claims.getSubject();
             if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                // Check if this is a user token (has mobileNumber claim)
+                String mobileNumber = claims.get("mobileNumber", String.class);
+                
                 UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
                         username, null, null);
                 auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
